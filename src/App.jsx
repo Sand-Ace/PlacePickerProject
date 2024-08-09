@@ -1,9 +1,11 @@
 // import { AVAILABLE_PLACES } from "./data";
 
+import Header from "./Components/Header";
+
 function App() {
   return (
     <>
-      <h1>This is Place Picker Project</h1>
+      <Header />
     </>
   );
 }
