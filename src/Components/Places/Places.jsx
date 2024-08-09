@@ -1,9 +1,13 @@
 import classes from "./Places.module.css";
 
-export default function Places({ places, title, onSelect }) {
+export default function Places({ places, title, onSelect, fallbacktext }) {
   return (
     <section className={classes["place-category"]}>
       <h2>{title}</h2>
+      {!places ||
+        (places.length == 0 && (
+          <p className={classes.fallbacktext}>{fallbacktext}</p>
+        ))}
       <ul className={classes.places}>
         {places.map((place) => (
           <li className={classes["place-item"]} key={place.id}>

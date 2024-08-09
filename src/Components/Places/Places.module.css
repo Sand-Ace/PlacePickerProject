@@ -15,6 +15,10 @@
     text-align: center;
 }
 
+.fallbacktext {
+    text-align: center;
+}
+
 .places {
     max-width: 80rem;
     display: grid;
@@ -29,6 +33,7 @@
     border-radius: 8px;
     background: #1f1c2c;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.3s ease-out forwards;
 }
 
 .place-item button {
@@ -59,16 +64,24 @@
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
-    transform: scale(1.2);
+    transform: scale(1);
     transition: transform;
 }
 
-.place-item button:hover {
+.place-item:nth-child(odd) button:hover,
+.place-item:nth-child(odd) button:focus {
     box-shadow: 0 0 8px 4px rgba(255, 217, 0, 0.6);
+    transform: rotateZ(2deg);
+}
+
+.place-item:nth-child(even) button:hover,
+.place-item:nth-child(even) button:focus {
+    box-shadow: 0 0 8px 4px rgba(255, 217, 0, 0.6);
+    transform: rotateZ(-2deg);
 }
 
 .place-item button:hover img {
-    transform: scale(1);
+    transform: scale(1.1);
 }
 
 .place-item button:hover h3 {
@@ -81,4 +94,18 @@
 .place-item button {
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
+}
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
