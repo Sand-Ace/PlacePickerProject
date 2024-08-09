@@ -1,3 +1,4 @@
+import ProgressBar from "../../UI/ProgressBar";
 import classes from "./DeleteConfirmation.module.css";
 
 export default function DeleteConfirmation({ onCancel, onDelete }) {
@@ -13,6 +14,7 @@ export default function DeleteConfirmation({ onCancel, onDelete }) {
           Yes
         </button>
       </div>
+      <ProgressBar onConfirm={onDelete} />
     </div>
   );
 }
