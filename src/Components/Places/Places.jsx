@@ -1,15 +1,13 @@
-import { AVAILABLE_PLACES } from "../../data";
-
 import classes from "./Places.module.css";
 
-export default function Places() {
+export default function Places({ places, title, onSelect }) {
   return (
     <section className={classes["place-category"]}>
-      <h2>Available Places</h2>
+      <h2>{title}</h2>
       <ul className={classes.places}>
-        {AVAILABLE_PLACES.map((place) => (
+        {places.map((place) => (
           <li className={classes["place-item"]} key={place.id}>
-            <button>
+            <button onClick={() => onSelect(place.id)}>
               <img src={place.image.src} alt={place.image.alt} />
               <h3>{place.title}</h3>
             </button>
